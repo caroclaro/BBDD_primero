@@ -1,3 +1,5 @@
+multas
+
 --1
 SELECT p.NOMBRE FROM PERSONAS p ;
 
