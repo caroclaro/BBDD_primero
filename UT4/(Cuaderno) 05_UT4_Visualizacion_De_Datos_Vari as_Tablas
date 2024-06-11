@@ -1,3 +1,5 @@
+HR
+
 --1 Devuelve el listado con el nombre, apellidos, email y nombre del departamento al que pertenecen todos los empleados.
 SELECT e.FIRST_NAME , e.LAST_NAME , e.EMAIL, d.DEPARTMENT_NAME FROM
 EMPLOYEES e JOIN DEPARTMENTS d ON d.DEPARTMENT_ID = e.DEPARTMENT_ID ;
