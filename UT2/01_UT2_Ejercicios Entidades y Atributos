@@ -1,0 +1,119 @@
+EJERCICIOS ENTIDADES Y ATRIBUTOS
+
+Ejercicio 1
+Identifica las entidades en los siguientes escenarios del mundo real:
+1. En el Hospital Ramón y Cajal hay médicos que atienden a pacientes que sufren enfermedades
+2. En la tienda de informática La Manzana venden productos con un código de barras y un precio
+asociados. En la tienda trabajan dos empleados de los que se tiene DNI y nombre. La tienda también
+dispone de proveedores
+3. En la empresa de mensajería Corre o Vuela hay dos tipos de empleados: mensajeros y administrativos.
+Los mensajeros tienen motos asociadas y los administrativos ordenadores. Los administrativos reciben
+los paquetes de los clientes y se los dan a los mensajeros asociados a la zona donde va el paquete. Los
+mensajeros cogen el paquete y lo llevan a su destinatario.
+
+1. Hospital Ramón y Cajal
+Médicos, pacientes y enfermedades
+2. Tienda de informática La Manzana
+Productos, empleados y proveedores
+3. Empresa de mensajería Corre o Vuela
+Mensajero, administrativos, motocicletas, envío, destinatario
+
+
+
+
+
+
+Ejercicio 2
+Identifica los atributos de las entidades en los siguientes escenarios del mundo real:
+1. En el Hospital Ramón y Cajal hay médicos (que se caracterizan por su DNI y tienen nombre y apellidos)
+que atienden a pacientes (que tienen un código, nombre y apellidos) que sufren enfermedades (que se
+codifican con un número y tienen nombre técnico y nombre común)
+2. En la tienda de informática La Manzana venden productos con un código de barras y un precio
+asociados. En la tienda trabajan dos empleados de los que se tiene DNI y nombre. La tienda también
+dispone de proveedores que se caracterizan por un nombre y un teléfono
+3. En la empresa de mensajería Corre o Vuela hay dos tipos de empleados (con Número de la seguridad
+Social, nombre y apellidos): mensajeros y administrativos. Los mensajeros tienen motos asociadas y los
+administrativos ordenadores. Los administrativos reciben los paquetes de los clientes y se los dan a los
+mensajeros asociados a la zona donde va el paquete. Los mensajeros cogen el paquete y lo llevan a su
+destinatario. Los paquetes tienen un peso y una dirección de destino. Las motos tienen un número
+identificativo y una cilindrada. El destinatario tiene un número y una dirección asociadas
+
+1. Hospital Ramón y Cajal
+MÉDICOS(DNI, nombre, apellidos)
+PACIENTES(código, nombre, apellidos, númeroEnfermedad)
+ENFERMEDADES(número, nombre técnico, nombre común)
+2. Tienda de informática La Manzana
+PRODUCTOS(código de barras, precio)
+EMPLEADOS(DNI, nombre)
+PROVEEDORES(nombre, teléfono)
+3. Empresa de mensajería Corre o Vuela
+MENSAJEROS(número de la seguridad social, nombre y apellidos,número, zona
+asociada, moto asociada)
+MOTOS(identificativo moto, cilindrada moto)
+ADMINISTRATIVOS(número de la seguridad social, nombre y apellidos, ordenador
+asociado)
+ENTREGA(peso, dirección de destino, zona, destinatario, mensajero asociado,
+administrativo asociado)
+
+
+
+
+Ejercicio 3
+A partir de los siguientes requisitos vamos a ver de qué elementos queremos guardar información, qué
+entidades y atributos tenemos y de qué tipo:
+1. Se quiere construir una base de datos para la cadena de Supermercados Mercatodo que tiene
+supermercados por toda España. Se quiere guardar información de cada uno de ellos: dirección, metros
+cuadrados, si está en régimen de alquiler o es comprado y la fecha en la que se efectuó. Se quiere saber quién
+es el director de cada supermercado. De los directores se almacena: su DNI, su nombre, apellidos, domicilio,
+teléfono y correo electrónico.
+2. Se registra información de los productos que se venden en los distintos supermercados con un código,
+descripción, familia y género al que pertenece, descuentos para socios, precio e IVA
+3. Cuando se realiza una venta se quiere registrar la fecha, los productos que se han vendido, el vendedor que la
+realiza y, si procede, el cliente al que se vende. El cliente participa cuando se hace una venta a un socio que
+recibe descuentos especiales. Tanto de los clientes como de los vendedores se quiere almacenar su DNI,
+Nombre, Apellidos, domicilio, teléfono y correo electrónico.
+
+1. SUPERS(dirección, m^2, régimen, fecha de régimen, director)
+DIRECTOR(DNI, nombre, apellidos, domicilio, correo electronico y telefono)
+2. PRODUCTOS(código, descripción, familia, género, descuento para socios, precio e
+IVA)
+3. VENTA(código productos, fecha, DNI vendedor, Socio, (si es socio) (N) DNI cliente)
+VENDEDORES(DNI, nombre, apellidos, domicilio, teléfono y correo)
+CLIENTES(DNI, nombre, apellidos, domicilio, teléfono, correo)
+
+
+
+
+
+
+
+
+
+
+Ejercicio 4
+Identifica las entidades y sus atributos en los siguientes escenarios. Identifica también los atributos y su atributo
+principal:
+Una compañía de seguros quiere informatizar sus procesos que actualmente están en papel.
+La compañía tiene clientes de los que en su ficha tiene DNI, nombre y apellidos, dirección, teléfono fijo,
+teléfono móvil, teléfono trabajo.
+La compañía vende pólizas de seguros . Cada póliza tiene un número de póliza y es de un tipo (vida, automóvil,
+hogar) . Tiene también unas características particulares asociadas, está asociada a un cliente, tiene un precio y
+un tipo de pago (mensual, semestral o anual) y tiene asociada una fecha de contrato, una fecha de inicio de la
+cobertura y una fecha fin de la cobertura.
+La compañía tiene muchas sucursales que tienen un código de sucursal, una dirección y teléfono. Las sucursales
+son de dos tipos: sucursal principal de ámbito provincial y sucursales dependientes de la principal.
+Las sucursales tienen un jefe de sucursal y varios vendedores. Un jefe de sucursal puede ser jefe de varias
+sucursales dependientes, pero no de varias sucursales principales. Un vendedor está asociado a una sola
+sucursal.
+Tenemos una ficha con los jefes de sucursal y de los vendedores que consta de DNI, nombre, apellidos, número
+de cuenta en la que reciben la nómina, dirección, teléfono móvil y teléfono fijo.
+También queremos tener registradas las pólizas que vende cada vendedor y las pólizas que tiene asociadas cada
+sucursal.
+
+CLIENTES(DNI, nombre, apellidos, dirección, teléfono fijo, teléfono móvil, teléfono de
+trabajo)
+PÓLIZA(número, tipo, DNI cliente, precio, tipo de pago, fecha de contrato, fecha de inicio,
+fecha de fin, DNI vendedor, código sucursal)
+SUCURSAL(código, dirección, teléfono, tipo, jefe)
+TRABAJADORESS( puesto, código sucursal , DNI, nombre, apellidos, número de cuenta,
+dirección, teléfono móvil y teléfono fijo)
