@@ -1,0 +1,12 @@
+Práctica Club Deportivo
+
+El club deportivo de un colegio quiere hacer una aplicación web informativa. En una primera
+versión, lo que quieren poder ver es los equipos de los diferentes deportes en los que
+participa el club (fútbol, baloncesto y voleibol), cada uno de ellos se debe poder agrupar en
+equipos masculinos y femeninos y en las categorías por la edad (benjamin, alevín, infantil,
+cadete y juvenil).
+Para cada equipo debemos poder ver los jugadores así como a su entrenador.
+Por cada jugador necesitamos, además de su nombre y apellidos, saber su edad, quienes
+son sus padres o tutores y los datos de contacto (teléfono y email) de los padres o tutores.
+De los entrenadores también necesitamos conocer sus datos de contacto (lo mismo,
+teléfono y email)
