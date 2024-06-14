@@ -48,24 +48,35 @@ END;
 		--3.b.i. El id (sacarlo de la secuencia)
 		--3.b.ii. El nombre y apellidos que será: PEPITO GRILLO
 		--3.b.iii. La fecha de contratación será hoy.
---sin acabr
 DECLARE
-	v_idemp employees.employee_id%TYPE := :id;
-	v_dept employees.department_id%TYPE;
-	v_emp employees%rowtype;
-
+    v_codempleado employees.employee_id%type;
+    v_departamento employees.department_id%type;
+    v_salariominimo number;
+    v_nuevoempleado employees%rowtype;
 BEGIN
-	DELETE FROM employees e
-			WHERE e.email = 'pepitogrillo@aaaa.aa';
-		
-	SELECT e.deparment_id INTO v_dept
-	FROM employees e
-	WHERE e.employee_id = v_idemp;
+    v_codempleado := &cod;
 
-	SELECT * INTO v_emp
-	FROM EMPLOYEES e 
-	WHERE e.employee_id
+    select department_id into v_departamento
+    from employees
+    where employee_id = v_codempleado;
 
+    select min(salary) into v_salariominimo
+    from employees 
+    where department_id = v_departamento;
+
+    select * into v_nuevoempleado
+    from employees e
+    where e.salary = v_salariominimo
+    and e.department_id = v_departamento;
+
+    v_nuevoempleado.employee_id := 777;
+    v_nuevoempleado.hire_date := sysdate;
+    v_nuevoempleado.first_name := 'Pepito';
+    v_nuevoempleado.last_name := 'Grillo';
+
+    INSERT INTO employees VALUES (v_nuevoempleado);
+END;
+    
 		
 
 --4. Diseñar un bloque PL que introduciendo el código de un empleado por teclado, visualice el sueldo y su código, para posteriormente actualizar su comisión teniendo en
@@ -119,7 +130,16 @@ END;
 
 
 --6. Diseñar un bloque de PL que le pida al usuario un código de empleado y que devuelva el mayor divisor del salario del empleado.
-
+DECLARE 
+    v_codempleado employees.employee_id%TYPE;
+    v_salario employees.salary%TYPE;
+    v_maximodiv NUMBER;
+BEGIN
+    v_codempleado := &cod;
+    
+    SELECT salary INTO v_salario
+    FROM employees
+    WHERE employee_id = v_codempleado;
 
 --7. Dado un país introducido por teclado, obtener el número de empleados que hay en ese país.
 DECLARE
@@ -145,6 +165,23 @@ CREATE TABLE TANGULOS (
     seno NUMBER,
     coseno NUMBER
 );
+DECLARE
+    v_angulo NUMBER := 0;
+    v_seno NUMBER;
+    v_coseno NUMBER;
+BEGIN
+    WHILE v_angulo <= 90 LOOP
+        v_seno := SIN(v_angulo * (3.14 / 180)); 
+        v_coseno := COS(v_angulo * (3.14 / 180)); 
+        
+        INSERT INTO TANGULOS VALUES (v_angulo, v_seno, v_coseno);
+        
+        v_angulo := v_angulo + 10; 
+    END LOOP;
+    
+    dbms_output.put_line('La tabla TANGULOS se ha llenado exitosamente.');
+END;
+
 
 --9. Haz un bloque anónimo que pida un id de empleado y cuente el número de vocales que hay en su email.
 
